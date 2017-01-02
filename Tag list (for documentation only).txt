@@ -1,0 +1,12 @@
+JavaScript _tags:
+Area		The object in question is an area (NEVER room, although it is recommended to implement rooms as areas.)
+Portable	The object in question may be picked up and carried around by the player.  (Many IF systems have this implemented by default.  This one doesn't.)
+invisible The object in question is not to be mentioned by the LOOK command.  Similar to Inform's scenery.
+
+HTML tags:
+data-content        Generic 'content'.  Generally used with data-hypertextType, below.
+data-hypertextType  Used for filling and cycling text.  Possible values: fill, cycle.
+                    Fill: replaces the text with the data-content when the object is clicked.  For example, you might have <a data-hypertextType='fill' data-content='canine quadruped'>dog</a>.  This produces a link with the text 'dog', which, when clicked, changes to have the text 'canine quadruped'.
+                    Cycle: switches between the comma-separated values in the content when the object is clicked.  For example, you might have <a data-hypertextType='cycle' data-content='dog, cat'>animal</a>.  This starts by displaying 'animal'.  When clicked, it changes to dog, then cat, then dog, then cat..., NEVER RETURNING TO ANIMAL.
+                    Sequence: the same as Cycle but, instead of going back to the start, disables the link.  Used for when you want the sequence to end instead of repeat.
+data-area           An area that is to be associated with the link.  When the player leaves an area with a _name corresponding to the value of this attribute, the object is replaced with the current text it is displaying.  This is an easy and effective way of disabling it.
